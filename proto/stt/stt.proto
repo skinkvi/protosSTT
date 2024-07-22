@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package stt;
+
+option go_package = "skinkvi.stt.v1;sttv1";
+
+service SpeedTypingTest {
+    rpc StartTest (StartTestRequest) returns (StartTestResponse) {}
+    rpc SubmitTest (SubmitTestRequest) returns (SubmitTestResponse) {}
+    rpc EndTest (EndTestRequest) returns (EndTestResponse) {}
+}
+
+message StartTestRequest {
+    string user_id = 1;
+}
+
+message StartTestResponse {
+    string user_id = 1;
+    string text_to_type = 2; // текст который нужно набрать
+}
+
+message SubmitTestRequest {
+    string typed_text = 1; // набранный текст
+}
+
+message SubmitTestResponse {
+    float accuracy = 1; // точность набора 
+}
+
+message EndTestRequest {
+  // Пустое сообщение, потому что мы не требуем никакой информации для завершения теста
+}
+
+message EndTestResponse {
+  // Пустое сообщение, потому что мы не возвращаем никакой информации при завершении теста
+}
