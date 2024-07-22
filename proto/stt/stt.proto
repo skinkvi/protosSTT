@@ -25,6 +25,7 @@ message SubmitTestRequest {
 
 message SubmitTestResponse {
     float accuracy = 1; // точность набора 
+    float speed = 2; // скорость набора 
 }
 
 message EndTestRequest {
